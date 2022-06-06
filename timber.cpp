@@ -33,7 +33,11 @@ int main() {
         }
 
         window.clear();
-        window.display();
+		
+		// Dessine la scene du jeu 
+		window.draw(spriteBackground);
+        
+		window.display();
     }
 
 	return 0;
