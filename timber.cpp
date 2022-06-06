@@ -84,6 +84,18 @@ int main() {
 		// Dessine la scene du jeu 
 		window.draw(spriteBackground);
         
+		// Dessine les nuages
+		window.draw(spriteCloud1);
+		window.draw(spriteCloud2);
+		window.draw(spriteCloud3);
+
+		// Dessine l'arbre
+		window.draw(spriteTree);
+
+		// Dessine l'abeille
+		window.draw(spriteBee);
+
+
 		window.display();
     }
 
