@@ -34,7 +34,7 @@ int main() {
 	sf::Texture textureBee;
 	textureBee.loadFromFile("graphics/sprite_Bee.png");
 	sf::Sprite spriteBee;
-	spriteBee.setTexture(textureTree);
+	spriteBee.setTexture(textureBee);
 	spriteBee.setPosition(0, 800);
 
 	// Es-ce que the bee est t-elle en train de bouger
