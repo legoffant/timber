@@ -12,6 +12,17 @@ int main() {
 	// Creer et ouvrir une fenetre pour le jeu timber!
 	sf::RenderWindow window(vm, "Timber!");
 
+	// Créer une texture pour le graphisme du GPU
+	sf::Texture textureBackground;
+	// Charger un graphisme depuis la texture
+	textureBackground.loadFromFile("graphics/sprite_Background.png");
+	// Créer un sprite
+	sf::Sprite spriteBackground;
+	// Attach the texture to the sprite
+	spriteBackground.setTexture(textureBackground);
+	// Paramêtrer le background pour qu'il prenne tout l'écran
+	spriteBackground.setPosition(0,0);
+
 	    while (window.isOpen())
     {
         sf::Event event;
