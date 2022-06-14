@@ -1,5 +1,6 @@
 #include <SFML/Graphics.hpp>
 #include <SFML/Graphics/Rect.hpp>
+#include <SFML/Graphics/RectangleShape.hpp>
 #include <SFML/Window.hpp>
 #include <SFML/Window/Keyboard.hpp>
 #include <sstream>
@@ -75,6 +76,17 @@ int main() {
 
 	// Variable pour contrôler le temps lui-même
 	sf::Clock clock;
+
+	// Time bar
+	sf::RectangleShape timeBar;
+	float timeBarStartWidth = 400;
+	float timeBarHeight = 80;
+	timeBar.setSize(sf::Vector2f(timeBarStartWidth, timeBarHeight));
+	timeBar.setPosition((1920 / 2.0) - timeBarStartWidth / 2.0, 980);
+
+	sf::Time gameTimeTotal;
+	float timeRemaining = 6.0f;
+	float timeBarWidthPerSecond = timeBarStartWidth / timeRemaining;
 
 	bool paused = true;
 
