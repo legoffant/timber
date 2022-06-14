@@ -87,7 +87,7 @@ int main() {
 
 	// Choix du font
 	sf::Font font;
-	font.loadFromFile("font/Freedom.ttf");
+	font.loadFromFile("font/04b25.ttf");
 
 	// Set the font to our message
 	messageText.setFont(font);
