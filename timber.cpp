@@ -78,7 +78,14 @@ int main() {
 
 
 		while (window.isOpen()){
-		
+			if (sf::Keyboard::isKeyPressed(sf::Keyboard::Escape)){
+				window.close();
+				}
+			// Start the game
+			if (sf::Keyboard::isKeyPressed(sf::Keyboard::Return)) {
+				paused = false;
+				}
+
 		/* 
 		 **************************************
 		 * Controler des evenements de fenetre
@@ -90,16 +97,7 @@ int main() {
 
 				if (event.type == sf::Event::Closed)
 					window.close();
-				if (sf::Keyboard::isKeyPressed(sf::Keyboard::Escape)){
-
-					window.close();
 				}
-				// Start the game
-				if (sf::Keyboard::isKeyPressed(sf::Keyboard::Return)) {
-
-					paused = false;
-				}
-			}
 
 		/* 
 		 * ***************************
