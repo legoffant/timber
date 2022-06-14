@@ -1,5 +1,6 @@
 #include <SFML/Graphics.hpp>
 #include <SFML/Window.hpp>
+#include <SFML/Window/Keyboard.hpp>
 
 // Commencer le jeu dans la fonction main
 
@@ -73,6 +74,8 @@ int main() {
 	// Variable pour contrôler le temps lui-même
 	sf::Clock clock;
 
+	bool paused = true;
+
 
 		while (window.isOpen()){
 		
@@ -82,11 +85,20 @@ int main() {
 		 **************************************
 		 */
 
-        sf::Event event;
+			sf::Event event;
 			while (window.pollEvent(event)){
 
-            if (event.type == sf::Event::Closed)
-                window.close();
+				if (event.type == sf::Event::Closed)
+					window.close();
+				if (sf::Keyboard::isKeyPressed(sf::Keyboard::Escape)){
+
+					window.close();
+				}
+				// Start the game
+				if (sf::Keyboard::isKeyPressed(sf::Keyboard::Return)) {
+
+					paused = false;
+				}
 			}
 
 		/* 
@@ -95,10 +107,10 @@ int main() {
 		 * ***************************
 		 */ 
 
-		sf::Time dt = clock.restart();
+			sf::Time dt = clock.restart();
 
-		// Configurer the bee
-		
+					
+			// Configurer the bee
 			if (!beeActive){
 
 				// How fast is the bee
