@@ -1,6 +1,7 @@
 #include <SFML/Graphics.hpp>
 #include <SFML/Window.hpp>
 #include <SFML/Window/Keyboard.hpp>
+#include <sstream>
 
 // Commencer le jeu dans la fonction main
 
@@ -75,6 +76,33 @@ int main() {
 	sf::Clock clock;
 
 	bool paused = true;
+
+	// Draw some text
+	int score = 0;
+	
+	// Texte message
+	sf::Text messageText;
+	sf::Text scoreText;
+
+	// Choix du font
+	sf::Font font;
+	font.loadFromFile("font/Freedom.ttf");
+
+	// Set the font to our message
+	messageText.setFont(font);
+	scoreText.setFont(font);
+
+	//Assign the actual message
+	messageText.setString("Press Enter to start!");
+	scoreText.setString("Score = 0");
+
+	// Make it really big
+	messageText.setCharacterSize(75);
+	scoreText.setCharacterSize(100);
+
+	// Choose a color
+	messageText.setFillColor(sf::Color::White);
+	scoreText.setFillColor(sf::Color::White);
 
 
 		while (window.isOpen()){
