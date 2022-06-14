@@ -1,4 +1,5 @@
 #include <SFML/Graphics.hpp>
+#include <SFML/Graphics/Rect.hpp>
 #include <SFML/Window.hpp>
 #include <SFML/Window/Keyboard.hpp>
 #include <sstream>
@@ -103,7 +104,17 @@ int main() {
 	// Choose a color
 	messageText.setFillColor(sf::Color::White);
 	scoreText.setFillColor(sf::Color::White);
+	
+	//Position the text
+	sf::FloatRect textRect = messageText.getLocalBounds();
 
+	messageText.setOrigin(textRect.left +
+			textRect.width / 2.0f,
+			textRect.top +
+			textRect.height / 2.0f);
+	messageText.setPosition(1920 / 2.0f, 1080 / 2.0f);
+
+	scoreText.setPosition(20, 20);
 
 		while (window.isOpen()){
 			if (sf::Keyboard::isKeyPressed(sf::Keyboard::Escape)){
@@ -230,6 +241,10 @@ int main() {
 					cloud3Active = false;
 				}
 			}
+			// Update the score text
+			std::stringstream ss;
+			ss << "Score = " << score;
+			scoreText.setString(ss.str());
 
 	/*
 		 * **************************
@@ -253,6 +268,14 @@ int main() {
 		// Dessine l'abeille
 		window.draw(spriteBee);
 
+		// Dessine le score
+		window.draw(scoreText);
+
+		if (paused) {
+
+			//Dessine le message
+			window.draw(messageText);
+		}
 
 		window.display();
     }
